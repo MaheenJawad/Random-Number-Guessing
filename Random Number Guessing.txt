@@ -1,0 +1,35 @@
+import random
+def play_guessing_game():
+    secnum = random.randint(1,100)
+    attempts = 0
+    
+    print("Welcome to the Guessing Game!")
+    print("\n\n")
+    print("I'm thinking of a number between 1 and 1000.")
+    print("\n\n")
+
+    while True:
+        try:
+            guess = int(input("Enter your guess = "))
+            attempts = attempts + 1
+            if guess < 1 or guess > 100:
+                print("ERROR!! \nPlease guess a number between 1 and 100")
+                print("\n")
+
+            elif guess < secnum:
+                print("Too low! TRY AGAIN.")
+                print("\n")
+
+            elif guess > secnum:
+                print("Too High! TRY AGAIN.")
+                print("\n")
+            else:
+                print(f"Congratulations! You guessed the number {secnum} in {attempts} attempts.")
+                print("\n")
+                break
+        except ValueError:
+            print("Please enter a new number")
+            print("\n")
+
+if __name__ == "__main__":
+    play_guessing_game()
